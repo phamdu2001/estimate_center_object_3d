@@ -49,4 +49,4 @@ def get_feature_color(path):
     cv2.destroyAllWindows() 
 
 
-get_feature_color("D:/Study/Xulyanh/code/data/b2.jpg")
+get_feature_color("D:/Study/Xulyanh/code/data/sample.jpg")

@@ -14,7 +14,7 @@ def detect_chess_board(path):
     #1. Tách màu sáng, giữ lại màu đen
     # converting frame(image == BGR) to HSV(hue-saturation-value)
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    lower_red = np.array([0, 0, 62])
+    lower_red = np.array([0, 0, 137])
     upper_red = np.array([255, 255, 255])
         
     # Morphological Transformations,Opening and Closing
@@ -36,11 +36,11 @@ def detect_chess_board(path):
     #3. Tách trắng lấy đen loại bỏ viền bàn cờ
     hsv = cv2.cvtColor(result, cv2.COLOR_BGR2HSV)
     lower_red = np.array([0, 0, 0])
-    upper_red = np.array([255, 255, 73])
+    upper_red = np.array([255, 255, 162])
         
     # Morphological Transformations,Opening and Closing
     thresh = cv2.inRange(hsv,lower_red, upper_red)
-    kernel = np.ones((10,10),np.uint8)
+    kernel = np.ones((15,15),np.uint8)
 
     #4. khử nhiễu
     mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
@@ -171,7 +171,7 @@ def ti_le(a1,a2,a3,n=2.75):
     return distance(a1,a2)/distance(a1,a3)*n
 # img2 = cv2.bitwise_and(img2, img2, mask=mask_0)
 
-# path = "D:/Study/Xulyanh/code/data/b1_.jpg"
+# path = "D:/Study/Xulyanh/code/data/back.jpg"
 # mask, corners = detect_chess_board(path)
 # image = cv2.imread(path)
 # image = cv2.resize(image,(500,400))
