@@ -76,19 +76,19 @@ for point in arr_point:
 
 center_object = (center_bottom[0] + center_top[0])/2
 
-# cv2.circle(img, (int(center_bottom[0][0]),int(center_bottom[0][1])), 4, (150, 200, 0), -1);
-# cv2.circle(img, (int(center_top[0][0]),int(center_top[0][1])), 4, (255, 200, 0), -1);
+cv2.circle(img, (int(center_bottom[0][0]),int(center_bottom[0][1])), 4, (150, 200, 0), -1);
+# # cv2.circle(img, (int(center_top[0][0]),int(center_top[0][1])), 4, (255, 200, 0), -1);
 cv2.circle(img, (int(center_object[0]),int(center_object[1])), 4, (0, 0, 200), -1);
 
-# x,y = hinhchieu(center_bottom[0], arr_point[1], arr_point[2], arr_point[3])
-# # cv2.circle(img, (int(x),int(y)), 4, (0, 200, 255), -1)
-# print(x,y)
+# # x,y = hinhchieu(center_bottom[0], arr_point[1], arr_point[2], arr_point[3])
+# # # cv2.circle(img, (int(x),int(y)), 4, (0, 200, 255), -1)
+# # print(x,y)
 
 h1 = hinhchieu(center_bottom[0], arr_point[1], arr_point[2], arr_point[3])
 h2 = hinhchieu(center_bottom[0],arr_point[0], arr_point[3], arr_point[2])
-# # print(h1)
-# cv2.circle(img, (int(h1[0]),int(h1[1])), 4, (255, 200, 0), -1)
-# cv2.circle(img, (int(h2[0]),int(h2[1])), 4, (255, 200, 0), -1)
+# # # print(h1)
+cv2.circle(img, (int(h1[0]),int(h1[1])), 4, (0, 200, 0), -1)
+cv2.circle(img, (int(h2[0]),int(h2[1])), 4, (0, 200, 0), -1)
 x = arr_near[0][0]*2.75 + ti_le(arr_point[1],h1,arr_point[2])+2.75
 y = arr_near[0][1]*2.75 + ti_le(h2,center_bottom[0],h1)+2.75
 
@@ -126,5 +126,5 @@ thickness = 2
 image = cv2.putText(img, coordinates, org, font, 
                    fontScale, color, thickness, cv2.LINE_AA)
 
-cv2.imshow("result", image)
+cv2.imshow("result", img)
 cv2.waitKey()
